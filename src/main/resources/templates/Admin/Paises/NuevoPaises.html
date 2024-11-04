@@ -346,16 +346,16 @@
                             </a>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form th:action="@{/DatosNuevosPaises}" th:object="${PaisesVis}" method="post">
                                 <!-- Primera Sección: Información Personal -->
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="nombre">Nombre</label>
-                                        <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre">
+                                        <input type="text" class="form-control" id="nombre" th:field="*{nombre}" placeholder="Ingresa tu nombre">
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="apellido">Moneda del Pais</label>
-                                        <input type="text" class="form-control" id="apellido" placeholder="Ingresa tu apellido">
+                                        <input type="text" class="form-control" id="apellido" th:field="*{monedaPais}" placeholder="Ingresa tu apellido">
                                     </div>
                                 </div>
                                 <hr>

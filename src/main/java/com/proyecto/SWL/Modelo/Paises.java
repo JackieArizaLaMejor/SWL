@@ -1,6 +1,7 @@
 package com.proyecto.SWL.Modelo;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,9 @@ public class Paises {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idPais;
+    @NotNull(message = "Este campo no puede estar vacio")
     private String nombre;
+    @NotNull(message = "Este campo no puede estar vacio")
     private String monedaPais;
 
     @OneToMany(mappedBy = "paises" , cascade = {CascadeType.MERGE,CascadeType.PERSIST}) // mappeBy es para busca el objecto , cascade = sirve para la crud esta relacion de merge y persist es para controlar las relaciones

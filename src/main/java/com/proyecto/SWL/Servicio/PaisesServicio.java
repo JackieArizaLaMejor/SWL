@@ -29,5 +29,15 @@ public class PaisesServicio {
     return paises.stream().map(this::transforDTO).collect(Collectors.toList());
     }
 
+    public void GuardarNuevoPais(PaisesDTO paisesDTO){
+        Paises p = new Paises();
+        p.setNombre(paisesDTO.getNombre());
+        p.setMonedaPais(paisesDTO.getMonedaPais());
+        ipaises.save(p);
+    }
+
+
+
+
 
 }
