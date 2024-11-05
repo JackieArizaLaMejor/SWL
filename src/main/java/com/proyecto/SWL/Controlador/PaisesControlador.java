@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.naming.Binding;
 import java.util.List;
@@ -43,6 +40,19 @@ public class PaisesControlador {
         paisesSer.GuardarNuevoPais(paisesDTO);
         return "redirect:/paises?Correcto";
     }
+
+    @GetMapping("/EditarPais/{id}")
+    public String editarPais(@PathVariable("id")Long id, Model model){
+    PaisesDTO paisesDTO = paisesSer.ObtenerPaisId(id);
+    model.addAttribute("editarPaises", paisesDTO);
+    return "Admin/Paises/EditarPaises";
+    }
+
+
+
+
+
+
 
 
 }

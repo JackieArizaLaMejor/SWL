@@ -36,6 +36,22 @@ public class PaisesServicio {
         ipaises.save(p);
     }
 
+    public PaisesDTO ObtenerPaisId(Long id){
+        Paises p = ipaises.findById(id)
+                .orElseThrow(()->new RuntimeException("No se encontro el pais"));
+        PaisesDTO paisesDTO = transforDTO(p);
+        return paisesDTO;
+    }
+
+
+    public void EditarPaises(PaisesDTO paisesDTO){
+        Paises p = ipaises.findById(paisesDTO.getIdPais())
+                .orElseThrow(()->new RuntimeException("No se encontro el pais"));
+        p.setNombre(paisesDTO.getNombre());
+        p.setMonedaPais(paisesDTO.getMonedaPais());
+        ipaises.save(p);
+    }
+
 
 
 

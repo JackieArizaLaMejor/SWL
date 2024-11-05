@@ -340,39 +340,31 @@
                 <div class="col-12">
                     <div class="card shadow mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h6 class="font-weight-bold text-primary">Tabla de paises</h6>
-                            <a th:href="@{/NuevoPaises}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                                <i class="fa-solid fa-plus"></i> Crear Paises
+                            <h6 class="font-weight-bold text-primary">Nuevo Registro de Paises</h6>
+                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                                <i class="fa-solid fa-rotate-left"></i> Volver
                             </a>
                         </div>
                         <div class="card-body">
-                            <div class="alert alert-success" role="alert" th:if="${param.Correcto}">
-                                Registro Exitoso
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover" width="100%" cellspacing="0">
-                                    <thead>
-                                    <tr>
-                                        <th><i class="fas fa-user"></i> Id paises </th>
-                                        <th><i class="fas fa-envelope"></i> Nombre </th>
-                                        <th><i class="fas fa-calendar"></i> Moneda Del Pais</th>
-                                        <th><i class="fas fa-cogs"></i> Opciones</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr th:each="p: ${VisPaises}">
-                                        <th th:text="${p.idPais}"></th>
-                                        <th th:text="${p.nombre}"></th>
-                                        <th th:text="${p.monedaPais}"></th>
-                                        <th>
-                                            <a th:href="@{/EditarPais/{id}(id=${p.idPais})}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Editar</a>
-                                            <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Eliminar</a>
-                                        </th>
-                                    </tr>
+                            <form th:object="${editarPaises}">
+                                <!-- Primera Sección: Información Personal -->
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="nombre">Nombre</label>
+                                        <input type="text" class="form-control" id="nombre" th:field="*{nombre}" placeholder="Ingresa tu nombre">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="apellido">Moneda del Pais</label>
+                                        <input type="text" class="form-control" id="apellido" th:field="*{monedaPais}" placeholder="Ingresa tu apellido">
+                                    </div>
+                                </div>
+                                <hr>
+                                <!-- Botón de Envío -->
+                                <button type="submit" class="btn btn-primary">Editar</button>
+                            </form>
 
-                                    </tbody>
-                                </table>
-                            </div>
+
+
                         </div>
                     </div>
                 </div>

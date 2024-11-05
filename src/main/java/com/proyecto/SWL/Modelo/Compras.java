@@ -17,10 +17,10 @@ import java.util.Date;
 public class Compras {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idVenta;
+    private Long idVenta;
     private Date fechaVenta;
-    private double monto;
-    private double trmAplicada;
+    private Double monto;
+    private Double trmAplicada;
     private ArrayList<Estados> estados = new ArrayList<Estados>();
     private ArrayList<Productos> producto = new ArrayList<Productos>();
     private ArrayList<Usuario> usuario = new ArrayList<Usuario>();
