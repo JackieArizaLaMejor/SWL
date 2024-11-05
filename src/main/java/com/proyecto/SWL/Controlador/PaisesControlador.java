@@ -48,6 +48,17 @@ public class PaisesControlador {
     return "Admin/Paises/EditarPaises";
     }
 
+    @PostMapping("/EditarPaisFinal")
+    public String EditarPaisFinal(@ModelAttribute("editarPaises")PaisesDTO paisesDTO, BindingResult result, Model model){
+        if (result.hasErrors()){
+            return "Admin/Paises/EditarPaises?ErrorEditar";
+        }if (paisesDTO.getIdPais()==null){
+            throw new IllegalArgumentException("No puede ser nulo");
+        }
+        paisesSer.EditarPaises(paisesDTO);
+    return "redirect:/paises?EditarCorrecto";
+    }
+
 
 
 
